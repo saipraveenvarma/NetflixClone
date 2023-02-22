@@ -1,9 +1,15 @@
 import "./App.css";
 import React from 'react'
+import  Banner  from "./components/Banner/Banner";
+import Navbar from "./components/Navbar/Navbar"
 
 function App() {
   return (
-    <div>App</div>
+  <div>
+    <Navbar/>
+  <Banner/>
+  </div>
+  
   )
 }
 
