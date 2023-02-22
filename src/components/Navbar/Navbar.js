@@ -11,7 +11,6 @@ const Navbar = () => {
   // }, []);
 
   return (
-<<<<<<< HEAD
     <nav>
       <img
         className="nav__logo"
@@ -24,14 +23,6 @@ const Navbar = () => {
         alt="Avatar"
       />
     </nav>
-=======
-    <div className="nav">
-      <img src={logo} className="nav__logo"/>
-      <img src={avatar} className="nav__avatar" />
-      
-    </div>
-   
->>>>>>> a54aa2c1c2d23a8203b40971210953fc70226d27
   );
 };
 
