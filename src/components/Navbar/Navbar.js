@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import "./Navbar.css";
+import logo from "../../images/netflix-logo.png"
+import avatar from "../../images/Netflix-avatar.png"
 
 const Navbar = () => {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
+  // const [show, setShow] = useState(false);
+  // useEffect(() => {
 
-  }, []);
+  // }, []);
 
   return (
+<<<<<<< HEAD
     <nav>
       <img
         className="nav__logo"
@@ -21,6 +24,14 @@ const Navbar = () => {
         alt="Avatar"
       />
     </nav>
+=======
+    <div className="nav">
+      <img src={logo} className="nav__logo"/>
+      <img src={avatar} className="nav__avatar" />
+      
+    </div>
+   
+>>>>>>> a54aa2c1c2d23a8203b40971210953fc70226d27
   );
 };
 
