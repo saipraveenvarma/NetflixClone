@@ -7,13 +7,13 @@ import movieTrailer from "movie-trailer";
 const baseUrl = "https://image.tmdb.org/t/p/original";
 
 const Row = ({ title, fetchUrl, isLargeRow }) => {
-  const [movies, setMovies] = useState([]);
-  const [trailerUrl, setTrailerUrl] = useState("");
+  const [series, setSeries] = useState([]);
+  const [trailer, setTrailer] = useState("");
 
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
-      setMovies(request.data.results);
+      setSeries(request.data.results);
       return request;
     }
     fetchData();
@@ -28,13 +28,13 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
   };
 
   const handleClick = (movie) => {
-    if (trailerUrl) {
-      setTrailerUrl("");
+    if (trailer) {
+      setTrailer("");
     } else {
       movieTrailer(movie?.name || "")
         .then((url) => {
           const urlParams = new URLSearchParams(new URL(url).search);
-          setTrailerUrl(urlParams.get("v"));
+          setTrailer(urlParams.get("v"));
         })
         .catch((err) => console.log(err));
     }
@@ -44,7 +44,7 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
     <div className="row">
       <h2>{title}</h2>
       <div className="row__posters">
-        {movies.map((movie) => (
+        {series.map((movie) => (
           <img
             key={movie.id}
             onClick={() => handleClick(movie)}
@@ -56,13 +56,7 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
           />
         ))}
       </div>
-      {trailerUrl && (
-        <YouTube
-          videoId={trailerUrl}
-          opts={opts}
-          className="youtube" // defaults -> null
-        />
-      )}{" "}
+      {trailer && <YouTube videoId={trailer} opts={opts} className="youtube" />}{" "}
     </div>
   );
 };
